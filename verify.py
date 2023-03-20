@@ -10,8 +10,8 @@ def email_verify(receiver_email):
 
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
-    sender_email = "lorsothy954@gmail.com"
-    sender_password = "oudtxpqobdycwsit"
+    sender_email = "your_email@gmail.com"
+    sender_password = "your-password"
     server = smtplib.SMTP(smtp_server, smtp_port)
     server.starttls()
     server.login(sender_email, sender_password)
