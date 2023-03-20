@@ -43,12 +43,8 @@ def handle_callback_query(call):
         bot.send_message(call.message.chat.id, "+ Help: show the help message\n+ Show Menu: type /start to show menu or go to home.\n+ Sign in: use to login to account." + "\n+ Sign Up: use to create the account." + "\n+ Forgot Password: If you forget your password use /start and click Forgot password")
     elif call.data == '/signup' and callback_running == False:
         callback_running = True
-        if (call.message.chat.username == None):
-            bot.send_message(call.message.chat.id, "Please enter a username using only letters.", parse_mode="HTML", reply_markup=cancel_markup)
-            bot.register_next_step_handler(call.message, get_username)
-        else:
-            bot.send_message(call.message.chat.id, "Your username is " + call.message.chat.username)
-            bot.register_next_step_handler(call.message.chat.username, get_username)
+        bot.send_message(call.message.chat.id, "Please enter a username using only letters.", parse_mode="HTML", reply_markup=cancel_markup)
+        bot.register_next_step_handler(call.message, get_username)
     elif call.data == '/signin'and callback_running == False:
         callback_running = True
         bot.send_message(call.message.chat.id, "Please enter your email address or username.",reply_markup=cancel_markup)
